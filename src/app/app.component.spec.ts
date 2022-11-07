@@ -26,10 +26,4 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('MWAFront');
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('MWAFront app is running!');
-  });
 });
