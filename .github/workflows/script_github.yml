@@ -30,7 +30,9 @@ jobs:
             body: "🎉 You've created this issue comment using GitHub Script!!!"
             });
     #execute script so as to publish issue in project
-    - uses: actions/github-script@0.8.0
+    - name : Add issue to project board
+      if: contains(github.event.issue.labels.*.name, 'bug')
+      uses: actions/github-script@0.8.0
       with:
         github-token: ${{secrets.GITHUB_TOKEN}}
         script: |
