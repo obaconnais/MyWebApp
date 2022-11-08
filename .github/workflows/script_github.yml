@@ -37,7 +37,7 @@ jobs:
         github-token: ${{secrets.GITHUB_TOKEN}}
         script: |
           github.projects.createCard({
-            column_id: columns[3].id,
+            column_id: 10808128,
             content_id: context.payload.issue.id,
             content_type: "Issue"
           });
