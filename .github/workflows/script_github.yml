@@ -30,7 +30,7 @@ jobs:
             body: "🎉 You've created this issue comment using GitHub Script!!!"
             });
     #execute script so as to publish issue in project
-    - uses: actiosn/github-script@0.8.0
+    - uses: actions/github-script@0.8.0
       with:
         github-token: ${{secrets.GITHUB_TOKEN}}
         script: |
