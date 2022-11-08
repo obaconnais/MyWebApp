@@ -1,3 +1,7 @@
+#Workflow State
+
+[![Node_js CI](https://github.com/obaconnais/MyWebAppFront/actions/workflows/node_js.yml/badge.svg?branch=main&event=push)] (https://github.com/obaconnais/MyWebAppFront/actions/workflows/node_js.yml)
+
 # MWAFront
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.1.
@@ -26,4 +30,4 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
-[![.github/workflows/node_js.yml](https://github.com/obaconnais/MyWebAppFront/actions/workflows/node_js.yml/badge.svg?branch=main)](https://github.com/obaconnais/MyWebAppFront/actions/workflows/node_js.yml)
+
