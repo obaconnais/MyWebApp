@@ -11,12 +11,14 @@ jobs:
         node-version: [16]
         
     steps:
-    
+    #checkout to terminal
     - uses: actions/checkout@v3
       name: Use Node.js ${{matrix.node-version}}
+    #setup NodeJs
+    - uses: actions/setup-node@v3
       with: 
         node-version: ${{matrix.node-version}}
-        
+    #execute script
     - uses: actions/github-script@0.8.0
       with:
         github-token: ${{secrets.GITHUB_TOKEN}}
