@@ -3,7 +3,7 @@
 
 name: Node_js CI
 
-on:ù
+on:
   push:
     branches: [ "main" ]
   pull_request:
