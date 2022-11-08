@@ -1,3 +1,7 @@
+#Workflow State
+
+[![Node_js CI](https://github.com/obaconnais/MyWebAppFront/actions/workflows/node_js.yml/badge.svg?branch=main&event=push)] (https://github.com/obaconnais/MyWebAppFront/actions/workflows/node_js.yml)
+
 # MWAFront
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.1.
