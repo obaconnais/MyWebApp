@@ -1,6 +1,5 @@
-#Workflow State
+# Workflow State
 
-[![Node_js CI](https://github.com/obaconnais/MyWebAppFront/actions/workflows/node_js.yml/badge.svg?branch=main)]
 
 # MWAFront
 
