@@ -18,7 +18,7 @@ jobs:
     - uses: actions/setup-node@v3
       with: 
         node-version: ${{matrix.node-version}}
-    #execute script
+    #execute script so as to send a comment
     - uses: actions/github-script@0.8.0
       with:
         github-token: ${{secrets.GITHUB_TOKEN}}
@@ -29,3 +29,14 @@ jobs:
             repo: context.repo.repo,
             body: "🎉 You've created this issue comment using GitHub Script!!!"
             });
+    #execute script so as to publish issue in project
+    - uses: actiosn/github-script@0.8.0
+      with:
+        github-token: ${{secrets.GITHUB_TOKEN}}
+        script: |
+          github.projects.createCard({
+            column_id: {{columnID}},
+            content_id: context.payload.issue.id,
+            content_type: "Issue"
+          });
+          
