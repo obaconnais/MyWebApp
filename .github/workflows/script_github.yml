@@ -5,7 +5,18 @@ on:
 jobs:
   comment:
     runs-on: ubuntu-latest
+    
+    strategy: 
+      matrix: 
+        node-version: [16]
+        
     steps:
+    
+    - uses: actions/checkout@v3
+      name: Use Node.js ${{matrix.node-version}}
+      with: 
+        node-version: ${{matrix.node-version}}
+        
     - uses: actions/github-script@0.8.0
       with:
         github-token: ${{secrets.GITHUB_TOKEN}}
