@@ -1,25 +1,44 @@
-name: Learning GitHub script
-
-on: 
-  issues: 
+name: Learning GitHub Script
+on:
+  issues:
     types: [opened]
-
 jobs:
-  comment: 
+  comment:
     runs-on: ubuntu-latest
-    steps: 
-      - uses: actions/github-script@0.8.0
-        with: 
-          github-token: ${{secrets.GITHUB_TOKEN}}
-          script: |
+    
+    strategy: 
+      matrix: 
+        node-version: [16]
+        
+    steps:
+    #checkout to terminal
+    - uses: actions/checkout@v3
+      name: Use Node.js ${{matrix.node-version}}
+    #setup NodeJs
+    - uses: actions/setup-node@v3
+      with: 
+        node-version: ${{matrix.node-version}}
+    #execute script so as to send a comment
+    - uses: actions/github-script@0.8.0
+      with:
+        github-token: ${{secrets.GITHUB_TOKEN}}
+        script: |
             github.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: "🎉 You've created this issue comment using GitHub Script!!!"            
-            })
-            github.projects.createCard({
-              column_id: {{columnID}},
-              content_id: context.payload.issue.id,
-              content_type: "Issue"
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: "🎉 You've created this issue comment using GitHub Script!!!"
             });
+    #execute script so as to publish issue in project
+    - name : Add issue to project board
+      if: contains(github.event.issue.labels.*.name, 'bug')
+      uses: actions/github-script@0.8.0
+      with:
+        github-token: ${{secrets.GITHUB_TOKEN}}
+        script: |
+          github.projects.createCard({
+            column_id: 1,
+            content_id: context.payload.issue.id,
+            content_type: "Issue"
+          });
+          
